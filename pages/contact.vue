@@ -31,7 +31,7 @@
     <div class="relative px-[5%] pt-32 pb-20">
       <div class="mb-12 text-center">
         <span
-          class="inline-block px-4 py-2 mb-4 text-sm font-semibold text-orange-500 rounded-full opacity-0 bg-orange-500/10 animate-fade-in"
+          class="inline-block px-4 py-2 mb-4 text-sm font-semibold text-orange-500 rounded-full md:opacity-0 bg-orange-500/10 animate-fade-in"
         >
           Early Access
         </span>
@@ -41,7 +41,7 @@
           Rejoignez l'aventure
         </h1>
         <p
-          class="max-w-2xl mx-auto text-gray-400 opacity-0 animate-fade-in-delay-1"
+          class="max-w-2xl mx-auto text-gray-400 md:opacity-0 animate-fade-in-delay-1"
         >
           Participez au programme beta et bénéficiez d'avantages exclusifs.
           Soyez parmi les premiers à façonner l'avenir de la gestion
@@ -60,7 +60,7 @@
             }"
           >
             <div
-              class="p-8 opacity-0 bg-slate-800/50 backdrop-blur rounded-2xl"
+              class="p-8 md:opacity-0 bg-slate-800/50 backdrop-blur rounded-2xl"
               :class="{ 'animate-fade-in-up': contactInfoVisible }"
             >
               <h2 class="mb-6 text-2xl font-bold text-orange-500">
@@ -146,7 +146,7 @@
             }"
           >
             <form
-              class="p-8 opacity-0 bg-slate-800/50 backdrop-blur rounded-2xl"
+              class="p-8 md:opacity-0 bg-slate-800/50 backdrop-blur rounded-2xl"
               :class="{ 'animate-fade-in-up': formVisible }"
               style="animation-delay: 200ms"
             >
@@ -215,35 +215,27 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
+import { useDevice } from "~/composables/useDevice";
 
 definePageMeta({
   layout: "default",
 });
 
+const { isMobile } = useDevice();
+
 // Variables pour les animations au scroll
 const contactInfoVisible = ref(false);
 const formVisible = ref(false);
 
-// Fallback pour mobile
-onMounted(() => {
-  // Déclenche les animations après un délai si elles ne sont pas déjà visibles
-  setTimeout(() => {
-    if (!contactInfoVisible.value) contactInfoVisible.value = true;
-    setTimeout(() => {
-      if (!formVisible.value) formVisible.value = true;
-    }, 400);
-  }, 1000);
-});
-
 // Handlers pour les animations au scroll
 const onContactInfoIntersect = (entries) => {
-  if (entries[0].isIntersecting) {
+  if (!isMobile.value && entries[0].isIntersecting) {
     contactInfoVisible.value = true;
   }
 };
 
 const onFormIntersect = (entries) => {
-  if (entries[0].isIntersecting) {
+  if (!isMobile.value && entries[0].isIntersecting) {
     formVisible.value = true;
   }
 };

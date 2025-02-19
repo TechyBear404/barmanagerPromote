@@ -30,7 +30,7 @@
 
       <div class="relative px-[5%]">
         <span
-          class="inline-block px-4 py-2 mb-6 text-sm font-semibold text-orange-500 rounded-full opacity-0 bg-orange-500/10 animate-fade-in"
+          class="inline-block px-4 py-2 mb-6 text-sm font-semibold text-orange-500 rounded-full md:opacity-0 bg-orange-500/10 animate-fade-in"
         >
           Notre Histoire
         </span>
@@ -42,7 +42,7 @@
           >
         </h1>
         <p
-          class="max-w-3xl mx-auto text-xl leading-relaxed text-center text-gray-400 opacity-0 animate-fade-in-delay-1"
+          class="max-w-3xl mx-auto text-xl leading-relaxed text-center text-gray-400 md:opacity-0 animate-fade-in-delay-1"
         >
           Née de la passion pour l'innovation et de l'expérience du terrain,
           HorecaFlow réinvente la gestion des bars et restaurants pour l'ère
@@ -68,7 +68,7 @@
             <div
               v-for="(stat, index) in stats"
               :key="index"
-              class="p-8 text-center transition-all duration-300 transform opacity-0 bg-slate-800/50 backdrop-blur rounded-2xl group hover:bg-slate-700/50 hover:-translate-y-2 hover:shadow-xl hover:shadow-orange-500/10"
+              class="p-8 text-center transition-all duration-300 transform md:opacity-0 bg-slate-800/50 backdrop-blur rounded-2xl group hover:bg-slate-700/50 hover:-translate-y-2 hover:shadow-xl hover:shadow-orange-500/10"
               :class="{ 'animate-fade-in-up': statsVisible }"
               :style="{
                 'animation-delay': statsVisible ? `${index * 200}ms` : '0ms',
@@ -119,7 +119,7 @@
             <div
               v-for="(feature, index) in features"
               :key="feature.title"
-              class="p-6 transition-all duration-300 transform opacity-0 bg-slate-800/50 backdrop-blur rounded-xl hover:bg-slate-700/50 hover:-translate-y-2 hover:shadow-xl hover:shadow-orange-500/10 group"
+              class="p-6 transition-all duration-300 transform md:opacity-0 bg-slate-800/50 backdrop-blur rounded-xl hover:bg-slate-700/50 hover:-translate-y-2 hover:shadow-xl hover:shadow-orange-500/10 group"
               :class="{ 'animate-fade-in-up': featuresVisible }"
               :style="{
                 'animation-delay': featuresVisible ? `${index * 100}ms` : '0ms',
@@ -162,7 +162,7 @@
       >
         <div class="px-[5%]">
           <div
-            class="relative p-8 overflow-hidden text-center opacity-0 bg-slate-800/50 backdrop-blur rounded-2xl md:p-16"
+            class="relative p-8 overflow-hidden text-center md:opacity-0 bg-slate-800/50 backdrop-blur rounded-2xl md:p-16"
             :class="{ 'animate-fade-in-up': ctaVisible }"
           >
             <div
@@ -199,29 +199,18 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
+import { useDevice } from "~/composables/useDevice";
 
 definePageMeta({
   layout: "default",
 });
 
+const { isMobile } = useDevice();
+
 // Variables pour les animations au scroll
 const statsVisible = ref(false);
 const featuresVisible = ref(false);
 const ctaVisible = ref(false);
-
-// Fallback pour mobile
-onMounted(() => {
-  // Déclenche les animations après un délai si elles ne sont pas déjà visibles
-  setTimeout(() => {
-    if (!statsVisible.value) statsVisible.value = true;
-    setTimeout(() => {
-      if (!featuresVisible.value) featuresVisible.value = true;
-      setTimeout(() => {
-        if (!ctaVisible.value) ctaVisible.value = true;
-      }, 600);
-    }, 400);
-  }, 1000);
-});
 
 // Données pour les statistiques
 const stats = [
@@ -282,19 +271,19 @@ const features = [
 
 // Handlers pour les animations au scroll
 const onStatsIntersect = (entries) => {
-  if (entries[0].isIntersecting) {
+  if (!isMobile.value && entries[0].isIntersecting) {
     statsVisible.value = true;
   }
 };
 
 const onFeaturesIntersect = (entries) => {
-  if (entries[0].isIntersecting) {
+  if (!isMobile.value && entries[0].isIntersecting) {
     featuresVisible.value = true;
   }
 };
 
 const onCtaIntersect = (entries) => {
-  if (entries[0].isIntersecting) {
+  if (!isMobile.value && entries[0].isIntersecting) {
     ctaVisible.value = true;
   }
 };

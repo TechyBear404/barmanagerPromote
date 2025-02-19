@@ -177,6 +177,42 @@
     transform: translateY(-4px);
     transition: transform 0.3s ease;
   }
+
+  /* Désactivation complète des animations sur mobile */
+  .animate-fade-in-up,
+  .animate-fade-in,
+  .animate-fade-in-delay-1,
+  .animate-fade-in-delay-2,
+  .animate-fade-in-delay-3,
+  .animate-slide-up,
+  .animate-float,
+  .animate-float-delay {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .parallax-bg {
+    animation: none !important;
+    transform: scale(1.1) !important;
+  }
+
+  .feature-list-move,
+  .feature-list-enter-active,
+  .feature-list-leave-active {
+    transition: none !important;
+  }
+
+  .group:hover {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* Réinitialisation des propriétés d'animation */
+  * {
+    animation-delay: 0s !important;
+    transition-delay: 0s !important;
+  }
 }
 
 /* Amélioration des performances d'animation */

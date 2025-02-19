@@ -31,7 +31,7 @@
       <div class="relative px-[5%] pt-32 pb-20">
         <div class="grid items-center gap-16 lg:grid-cols-2">
           <!-- Contenu texte avec ombre portée renforcée -->
-          <div class="relative z-10 opacity-0 animate-fade-in">
+          <div class="relative z-10 md:opacity-0 animate-fade-in">
             <span
               class="inline-block px-4 py-2 mb-8 text-sm font-semibold rounded-full shadow-lg text-lime-400 bg-lime-400/10 shadow-lime-400/10"
             >
@@ -48,13 +48,13 @@
             </h1>
             <div class="mb-10 space-y-6">
               <p
-                class="text-xl leading-relaxed tracking-wide text-gray-100 [text-shadow:_0_1px_10px_rgb(0_0_0_/_40%)] opacity-0 animate-fade-in-delay-1"
+                class="text-xl leading-relaxed tracking-wide text-gray-100 [text-shadow:_0_1px_10px_rgb(0_0_0_/_40%)] md:opacity-0 animate-fade-in-delay-1"
               >
                 Découvrez un système de point de vente intelligent et rapide,
                 conçu pour simplifier votre quotidien.
               </p>
               <p
-                class="text-xl leading-relaxed tracking-wide text-gray-100 [text-shadow:_0_1px_10px_rgb(0_0_0_/_40%)] opacity-0 animate-fade-in-delay-2"
+                class="text-xl leading-relaxed tracking-wide text-gray-100 [text-shadow:_0_1px_10px_rgb(0_0_0_/_40%)] md:opacity-0 animate-fade-in-delay-2"
               >
                 Boostez vos performances avec une interface intuitive et des
                 outils innovants.
@@ -63,7 +63,7 @@
             <div class="flex flex-wrap items-center gap-6">
               <a
                 href="#demo"
-                class="relative px-10 py-5 overflow-hidden font-bold tracking-wider transition-all duration-300 rounded-lg group bg-gradient-to-r from-orange-500 to-orange-400 text-gray-50 hover:shadow-xl hover:shadow-orange-500/20 hover:-translate-y-0.5 opacity-0 animate-fade-in-delay-3"
+                class="relative px-10 py-5 overflow-hidden font-bold tracking-wider transition-all duration-300 rounded-lg group bg-gradient-to-r from-orange-500 to-orange-400 text-gray-50 hover:shadow-xl hover:shadow-orange-500/20 hover:-translate-y-0.5 md:opacity-0 animate-fade-in-delay-3"
               >
                 <span class="relative z-10">DÉCOUVRIR LA DÉMO</span>
                 <div
@@ -72,7 +72,7 @@
               </a>
               <NuxtLink
                 to="/contact"
-                class="px-10 py-5 font-bold tracking-wider text-orange-500 transition-all duration-300 border-2 rounded-lg border-orange-500/50 hover:bg-orange-500/10 hover:shadow-lg hover:shadow-orange-500/10 hover:-translate-y-0.5 opacity-0 animate-fade-in-delay-3"
+                class="px-10 py-5 font-bold tracking-wider text-orange-500 transition-all duration-300 border-2 rounded-lg border-orange-500/50 hover:bg-orange-500/10 hover:shadow-lg hover:shadow-orange-500/10 hover:-translate-y-0.5 md:opacity-0 animate-fade-in-delay-3"
               >
                 DEMANDER UN DEVIS
               </NuxtLink>
@@ -203,7 +203,7 @@
             <article
               v-for="(feature, index) in features"
               :key="feature.title"
-              class="p-8 transition-all duration-300 transform opacity-0 group bg-slate-900/50 backdrop-blur rounded-xl hover:bg-slate-700/50 hover:shadow-xl hover:shadow-slate-900/50 hover:-translate-y-1"
+              class="p-8 transition-all duration-300 transform md:opacity-0 group bg-slate-900/50 backdrop-blur rounded-xl hover:bg-slate-700/50 hover:shadow-xl hover:shadow-slate-900/50 hover:-translate-y-1"
               :class="{ 'animate-fade-in-up': featuresVisible }"
               :style="{
                 'animation-delay': featuresVisible ? `${index * 200}ms` : '0ms',
@@ -254,7 +254,7 @@
             <div
               v-for="(faq, index) in faqs"
               :key="index"
-              class="transition-all duration-300 transform opacity-0 bg-slate-900/50 backdrop-blur rounded-xl hover:bg-slate-700/50"
+              class="transition-all duration-300 transform md:opacity-0 bg-slate-900/50 backdrop-blur rounded-xl hover:bg-slate-700/50"
               :class="{ 'animate-fade-in-up': faqsVisible }"
               :style="{
                 'animation-delay': faqsVisible ? `${index * 200}ms` : '0ms',
@@ -271,11 +271,11 @@
               </div>
               <transition
                 enter-active-class="transition-all duration-300 ease-out"
-                enter-from-class="opacity-0 max-h-0"
+                enter-from-class="md:opacity-0 max-h-0"
                 enter-to-class="max-h-[500px] opacity-100"
                 leave-active-class="transition-all duration-300 ease-in"
                 leave-from-class="max-h-[500px] opacity-100"
-                leave-to-class="opacity-0 max-h-0"
+                leave-to-class="md:opacity-0 max-h-0"
               >
                 <div
                   v-show="activeFaq === index"
@@ -315,7 +315,7 @@
             <div
               v-for="(testimonial, index) in testimonials"
               :key="index"
-              class="p-8 transition-all opacity-0 bg-slate-800/50 backdrop-blur rounded-2xl hover:bg-slate-700/50"
+              class="p-8 transition-all md:opacity-0 bg-slate-800/50 backdrop-blur rounded-2xl hover:bg-slate-700/50"
               :class="{ 'animate-fade-in-up': testimonialsVisible }"
               :style="{
                 'animation-delay': testimonialsVisible
@@ -357,29 +357,19 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
+import { useDevice } from "~/composables/useDevice";
 
 definePageMeta({
   layout: "default",
 });
 
+const { isMobile } = useDevice();
+
+// Variables pour les animations au scroll
 const featuresVisible = ref(false);
 const faqsVisible = ref(false);
 const testimonialsVisible = ref(false);
 const activeFaq = ref(null);
-
-// Fallback pour mobile
-onMounted(() => {
-  // Déclenche les animations après un délai si elles ne sont pas déjà visibles
-  setTimeout(() => {
-    if (!featuresVisible.value) featuresVisible.value = true;
-    setTimeout(() => {
-      if (!faqsVisible.value) faqsVisible.value = true;
-      setTimeout(() => {
-        if (!testimonialsVisible.value) testimonialsVisible.value = true;
-      }, 600);
-    }, 400);
-  }, 1000);
-});
 
 // Listes de données
 const features = [
@@ -477,19 +467,19 @@ const testimonials = [
 
 // Handlers
 const onFeaturesIntersect = (entries) => {
-  if (entries[0].isIntersecting) {
+  if (!isMobile.value && entries[0].isIntersecting) {
     featuresVisible.value = true;
   }
 };
 
 const onFaqsIntersect = (entries) => {
-  if (entries[0].isIntersecting) {
+  if (!isMobile.value && entries[0].isIntersecting) {
     faqsVisible.value = true;
   }
 };
 
 const onTestimonialsIntersect = (entries) => {
-  if (entries[0].isIntersecting) {
+  if (!isMobile.value && entries[0].isIntersecting) {
     testimonialsVisible.value = true;
   }
 };
