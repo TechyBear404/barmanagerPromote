@@ -200,10 +200,13 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { useDevice } from "~/composables/useDevice";
+import { useParallax } from "~/composables/useParallax";
 
 definePageMeta({
   layout: "default",
 });
+
+useParallax();
 
 const { isMobile } = useDevice();
 

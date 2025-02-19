@@ -203,7 +203,7 @@
             <article
               v-for="(feature, index) in features"
               :key="feature.title"
-              class="p-8 transition-all duration-300 transform md:opacity-0 group bg-slate-900/50 backdrop-blur rounded-xl hover:bg-slate-700/50 hover:shadow-xl hover:shadow-slate-900/50 hover:-translate-y-1"
+              class="p-8 transition-all duration-300 transform md:opacity-0 group bg-slate-900/50 backdrop-blur rounded-xl hover:bg-slate-700/50 hover:shadow-xl hover:shadow-orange-500/20 hover:-translate-y-4"
               :class="{ 'animate-fade-in-up': featuresVisible }"
               :style="{
                 'animation-delay': featuresVisible ? `${index * 200}ms` : '0ms',
@@ -358,10 +358,13 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { useDevice } from "~/composables/useDevice";
+import { useParallax } from "~/composables/useParallax";
 
 definePageMeta({
   layout: "default",
 });
+
+useParallax();
 
 const { isMobile } = useDevice();
 

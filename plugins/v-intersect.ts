@@ -1,5 +1,5 @@
-import { defineNuxtPlugin } from '#app';
-import { DirectiveBinding } from 'vue';
+import { defineNuxtPlugin } from "#app";
+import { DirectiveBinding } from "vue";
 
 interface IntersectionOptions {
   handler: (entries: IntersectionObserverEntry[]) => void;
@@ -8,11 +8,8 @@ interface IntersectionOptions {
 }
 
 export default defineNuxtPlugin((nuxtApp) => {
-  nuxtApp.vueApp.directive('intersect', {
-    mounted(
-      el: HTMLElement,
-      binding: DirectiveBinding<IntersectionOptions>
-    ) {
+  nuxtApp.vueApp.directive("intersect", {
+    mounted(el: HTMLElement, binding: DirectiveBinding<IntersectionOptions>) {
       const { value } = binding;
       const { handler, options = {}, once = false } = value || {};
 
@@ -26,7 +23,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       const defaultOptions = {
         root: null,
         threshold: 0.1,
-        rootMargin: '50px 0px',
+        rootMargin: "50px 0px",
       };
 
       const observer = new IntersectionObserver(
@@ -42,7 +39,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       observer.observe(el);
       el._observer = observer;
     },
-    
+
     unmounted(el: HTMLElement) {
       if (el._observer) {
         el._observer.disconnect();
