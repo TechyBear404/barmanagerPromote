@@ -1,7 +1,7 @@
 <template>
   <div class="mt-20">
     <section
-      class="bg-gradient-to-br from-gray-900 to-gray-800 px-[5%] min-h-screen flex items-center gap-8"
+      class="bg-gradient-to-br from-slate-900 to-slate-700 px-[5%] min-h-screen flex items-center gap-8"
       aria-label="Section principale"
     >
       <div class="flex-1">
@@ -16,16 +16,16 @@
         <div class="flex gap-4">
           <a
             href="#demo"
-            class="bg-emerald-400 text-gray-900 px-8 py-4 rounded font-bold hover:-translate-y-0.5 transition-transform duration-300"
+            class="bg-orange-500 text-gray-50 px-8 py-4 rounded font-bold hover:-translate-y-0.5 transition-transform duration-300"
           >
             Démonstration Gratuite
           </a>
-          <a
-            href="#contact"
-            class="border-2 border-emerald-400 text-emerald-400 px-8 py-4 rounded font-bold hover:-translate-y-0.5 transition-transform duration-300"
+          <NuxtLink
+            to="/contact"
+            class="border-2 border-orange-500 text-orange-500 px-8 py-4 rounded font-bold hover:-translate-y-0.5 transition-transform duration-300"
           >
             Contactez-nous pour un Devis
-          </a>
+          </NuxtLink>
         </div>
       </div>
       <div class="flex justify-center flex-1">
@@ -37,144 +37,27 @@
       </div>
     </section>
 
-    <section class="bg-gray-900 px-[5%] py-20">
+    <section class="bg-slate-900 px-[5%] py-20">
       <h2 class="mb-16 text-4xl font-bold text-center text-white">
         Fonctionnalités Principales de BarManager
       </h2>
       <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
         <article
-          class="p-8 text-center transition-transform duration-300 bg-gray-800 rounded-lg hover:-translate-y-1"
+          v-for="feature in features"
+          :key="feature.title"
+          class="p-8 text-center transition-transform duration-300 rounded-lg bg-slate-700 hover:-translate-y-1"
         >
-          <i
-            class="mb-4 text-3xl fas fa-cash-register text-emerald-400"
+          <font-awesome
+            :icon="feature.icon"
+            class="mb-4 text-3xl"
+            :class="feature.iconColor"
             aria-hidden="true"
-          ></i>
-          <h3 class="mb-4 text-xl font-bold text-emerald-400">
-            Gestion des Commandes
+          />
+          <h3 class="mb-4 text-xl font-bold" :class="feature.titleColor">
+            {{ feature.title }}
           </h3>
-          <p class="text-gray-400">
-            Interface tactile intuitive pour une prise de commande rapide et
-            sans erreur
-          </p>
-        </article>
-
-        <article
-          class="p-8 text-center transition-transform duration-300 bg-gray-800 rounded-lg hover:-translate-y-1"
-        >
-          <i
-            class="mb-4 text-3xl fas fa-chart-line text-emerald-400"
-            aria-hidden="true"
-          ></i>
-          <h3 class="mb-4 text-xl font-bold text-emerald-400">
-            Analyse en temps réel
-          </h3>
-          <p class="text-gray-400">
-            Tableaux de bord personnalisables pour suivre vos performances en
-            direct
-          </p>
-        </article>
-
-        <article
-          class="p-8 text-center transition-transform duration-300 bg-gray-800 rounded-lg hover:-translate-y-1"
-        >
-          <i
-            class="mb-4 text-3xl fas fa-box text-emerald-400"
-            aria-hidden="true"
-          ></i>
-          <h3 class="mb-4 text-xl font-bold text-emerald-400">
-            Gestion des stocks
-          </h3>
-          <p class="text-gray-400">
-            Contrôle d'inventaire automatisé avec alertes de réapprovisionnement
-          </p>
-        </article>
-
-        <article
-          class="p-8 text-center transition-transform duration-300 bg-gray-800 rounded-lg hover:-translate-y-1"
-        >
-          <i
-            class="mb-4 text-3xl fas fa-users text-emerald-400"
-            aria-hidden="true"
-          ></i>
-          <h3 class="mb-4 text-xl font-bold text-emerald-400">
-            Gestion du Personnel
-          </h3>
-          <p class="text-gray-400">
-            Planification des équipes, suivi des heures et gestion des accès
-            personnalisés
-          </p>
-        </article>
-
-        <article
-          class="p-8 text-center transition-transform duration-300 bg-gray-800 rounded-lg hover:-translate-y-1"
-        >
-          <i
-            class="mb-4 text-3xl fas fa-receipt text-emerald-400"
-            aria-hidden="true"
-          ></i>
-          <h3 class="mb-4 text-xl font-bold text-emerald-400">
-            Facturation Simplifiée
-          </h3>
-          <p class="text-gray-400">
-            Gestion des paiements multi-supports et édition automatique des
-            factures
-          </p>
-        </article>
-
-        <article
-          class="p-8 text-center transition-transform duration-300 bg-gray-800 rounded-lg hover:-translate-y-1"
-        >
-          <i
-            class="mb-4 text-3xl fas fa-mobile-alt text-emerald-400"
-            aria-hidden="true"
-          ></i>
-          <h3 class="mb-4 text-xl font-bold text-emerald-400">
-            Application Mobile
-          </h3>
-          <p class="text-gray-400">
-            Accès à distance à vos données et gestion depuis votre smartphone
-          </p>
-        </article>
-
-        <article
-          class="p-8 text-center transition-transform duration-300 bg-gray-800 rounded-lg hover:-translate-y-1"
-        >
-          <i
-            class="mb-4 text-3xl fas fa-glass-cheers text-emerald-400"
-            aria-hidden="true"
-          ></i>
-          <h3 class="mb-4 text-xl font-bold text-emerald-400">Menu Digital</h3>
-          <p class="text-gray-400">
-            Création et mise à jour facile de vos cartes avec prix et
-            disponibilités
-          </p>
-        </article>
-
-        <article
-          class="p-8 text-center transition-transform duration-300 bg-gray-800 rounded-lg hover:-translate-y-1"
-        >
-          <i
-            class="mb-4 text-3xl fas fa-table text-emerald-400"
-            aria-hidden="true"
-          ></i>
-          <h3 class="mb-4 text-xl font-bold text-emerald-400">Plan de Salle</h3>
-          <p class="text-gray-400">
-            Gestion visuelle des tables et suivi en temps réel de l'occupation
-          </p>
-        </article>
-
-        <article
-          class="p-8 text-center transition-transform duration-300 bg-gray-800 rounded-lg hover:-translate-y-1"
-        >
-          <i
-            class="mb-4 text-3xl fas fa-credit-card text-emerald-400"
-            aria-hidden="true"
-          ></i>
-          <h3 class="mb-4 text-xl font-bold text-emerald-400">
-            Fidélisation Clients
-          </h3>
-          <p class="text-gray-400">
-            Programme de fidélité intégré avec cartes et points de récompense
+          <p :class="feature.textColor">
+            {{ feature.description }}
           </p>
         </article>
       </div>
@@ -186,6 +69,90 @@
 definePageMeta({
   layout: "default",
 });
+
+const features = [
+  {
+    icon: "cash-register",
+    iconColor: "text-orange-500",
+    title: "Gestion des Commandes",
+    titleColor: "text-orange-500",
+    textColor: "text-gray-50",
+    description:
+      "Interface tactile intuitive pour une prise de commande rapide et sans erreur",
+  },
+  {
+    icon: "chart-line",
+    iconColor: "text-orange-500",
+    title: "Analyse en temps réel",
+    titleColor: "text-orange-500",
+    textColor: "text-gray-50",
+    description:
+      "Tableaux de bord personnalisables pour suivre vos performances en direct",
+  },
+  {
+    icon: "box",
+    iconColor: "text-emerald-400",
+    title: "Gestion des stocks",
+    titleColor: "text-emerald-400",
+    textColor: "text-gray-400",
+    description:
+      "Contrôle d'inventaire automatisé avec alertes de réapprovisionnement",
+  },
+  {
+    icon: "users",
+    iconColor: "text-emerald-400",
+    title: "Gestion du Personnel",
+    titleColor: "text-emerald-400",
+    textColor: "text-gray-400",
+    description:
+      "Planification des équipes, suivi des heures et gestion des accès personnalisés",
+  },
+  {
+    icon: "receipt",
+    iconColor: "text-emerald-400",
+    title: "Facturation Simplifiée",
+    titleColor: "text-emerald-400",
+    textColor: "text-gray-400",
+    description:
+      "Gestion des paiements multi-supports et édition automatique des factures",
+  },
+  {
+    icon: "mobile-alt",
+    iconColor: "text-emerald-400",
+    title: "Application Mobile",
+    titleColor: "text-emerald-400",
+    textColor: "text-gray-400",
+    description:
+      "Accès à distance à vos données et gestion depuis votre smartphone",
+  },
+  {
+    icon: "glass-cheers",
+    iconColor: "text-emerald-400",
+    title: "Menu Digital",
+    titleColor: "text-emerald-400",
+    textColor: "text-gray-400",
+    description:
+      "Création et mise à jour facile de vos cartes avec prix et disponibilités",
+  },
+  {
+    icon: "table",
+    iconColor: "text-emerald-400",
+    title: "Plan de Salle",
+    titleColor: "text-emerald-400",
+    textColor: "text-gray-400",
+    description:
+      "Gestion visuelle des tables et suivi en temps réel de l'occupation",
+  },
+  {
+    icon: "credit-card",
+    iconColor: "text-emerald-400",
+    title: "Fidélisation Clients",
+    titleColor: "text-emerald-400",
+    textColor: "text-gray-400",
+    description:
+      "Programme de fidélité intégré avec cartes et points de récompense",
+  },
+];
 
 useHead({
   title: "BarManager - Logiciel de Caisse pour Bar et Restaurant",

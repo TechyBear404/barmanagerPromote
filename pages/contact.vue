@@ -1,55 +1,57 @@
 <template>
-  <div class="mt-20 px-[5%] py-20 bg-gradient-to-br from-gray-900 to-gray-800">
-    <h1 class="mb-12 text-4xl font-bold text-center text-white">
+  <div
+    class="mt-20 px-[5%] py-20 bg-gradient-to-br from-slate-900 to-slate-700"
+  >
+    <h1 class="mb-12 text-4xl font-bold text-center text-gray-50">
       Contactez-nous
     </h1>
 
     <div class="grid max-w-4xl gap-12 mx-auto md:grid-cols-2">
-      <div class="p-8 bg-gray-800 rounded-lg">
-        <h2 class="mb-6 text-2xl font-bold text-emerald-400">
+      <div class="p-8 bg-slate-700 rounded-lg">
+        <h2 class="mb-6 text-2xl font-bold text-orange-500">
           Informations de contact
         </h2>
         <div class="space-y-4">
           <div class="flex items-center space-x-3">
-            <i class="fas fa-envelope text-emerald-400"></i>
+            <font-awesome icon="envelope" class="text-orange-500" />
             <a
               href="mailto:techybear404@gmail.com"
-              class="text-gray-300 transition-colors hover:text-emerald-400"
+              class="text-gray-50 transition-colors hover:text-orange-500"
             >
               techybear404@gmail.com
             </a>
           </div>
           <div class="flex items-center space-x-3">
-            <i class="fas fa-phone text-emerald-400"></i>
-            <span class="text-gray-300">+33 (0)6 XX XX XX XX</span>
+            <font-awesome icon="phone" class="text-orange-500" />
+            <span class="text-gray-50">+33 (0)6 XX XX XX XX</span>
           </div>
         </div>
       </div>
 
-      <form class="p-8 space-y-6 bg-gray-800 rounded-lg">
+      <form class="p-8 space-y-6 bg-slate-700 rounded-lg">
         <div>
-          <label class="block mb-2 text-white">Nom</label>
+          <label class="block mb-2 text-gray-50">Nom</label>
           <input
             type="text"
-            class="w-full px-4 py-2 text-white bg-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-emerald-400"
+            class="w-full px-4 py-2 text-gray-50 bg-slate-900 rounded focus:outline-none focus:ring-2 focus:ring-orange-500"
           />
         </div>
         <div>
-          <label class="block mb-2 text-white">Email</label>
+          <label class="block mb-2 text-gray-50">Email</label>
           <input
             type="email"
-            class="w-full px-4 py-2 text-white bg-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-emerald-400"
+            class="w-full px-4 py-2 text-gray-50 bg-slate-900 rounded focus:outline-none focus:ring-2 focus:ring-orange-500"
           />
         </div>
         <div>
-          <label class="block mb-2 text-white">Message</label>
+          <label class="block mb-2 text-gray-50">Message</label>
           <textarea
             rows="4"
-            class="w-full px-4 py-2 text-white bg-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-emerald-400"
+            class="w-full px-4 py-2 text-gray-50 bg-slate-900 rounded focus:outline-none focus:ring-2 focus:ring-orange-500"
           ></textarea>
         </div>
         <button
-          class="w-full bg-emerald-400 text-gray-900 py-3 rounded font-bold hover:-translate-y-0.5 transition-transform duration-300"
+          class="w-full bg-orange-500 text-gray-50 py-3 rounded font-bold hover:-translate-y-0.5 transition-transform duration-300"
         >
           Envoyer
         </button>

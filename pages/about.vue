@@ -1,16 +1,14 @@
 <template>
-  <div class="mt-20 bg-gradient-to-br from-gray-900 to-gray-800">
+  <div class="mt-20 bg-gradient-to-br from-slate-900 to-slate-700">
     <div class="px-[5%] py-20">
-      <h1 class="mb-12 text-4xl font-bold text-center text-white">
+      <h1 class="mb-12 text-4xl font-bold text-center text-gray-50">
         À propos de BarManager
       </h1>
 
       <div class="max-w-4xl mx-auto space-y-12">
-        <section class="p-8 bg-gray-800 rounded-lg">
-          <h2 class="mb-4 text-2xl font-bold text-emerald-400">
-            Notre Mission
-          </h2>
-          <p class="leading-relaxed text-gray-300">
+        <section class="p-8 bg-slate-700 rounded-lg">
+          <h2 class="mb-4 text-2xl font-bold text-orange-500">Notre Mission</h2>
+          <p class="leading-relaxed text-gray-50">
             BarManager est né d'une vision simple : simplifier la gestion
             quotidienne des bars et restaurants. Notre solution POS moderne
             combine facilité d'utilisation et puissance analytique pour vous
@@ -19,49 +17,49 @@
         </section>
 
         <section class="grid gap-8 md:grid-cols-2">
-          <div class="p-8 bg-gray-800 rounded-lg">
-            <h2 class="mb-4 text-2xl font-bold text-emerald-400">
+          <div class="p-8 bg-slate-700 rounded-lg">
+            <h2 class="mb-4 text-2xl font-bold text-orange-500">
               Pourquoi nous choisir ?
             </h2>
-            <ul class="space-y-3 text-gray-300">
+            <ul class="space-y-3 text-gray-50">
               <li class="flex items-center space-x-2">
-                <i class="fas fa-check text-emerald-400"></i>
+                <font-awesome icon="check" class="text-orange-500" />
                 <span>Interface intuitive et moderne</span>
               </li>
               <li class="flex items-center space-x-2">
-                <i class="fas fa-check text-emerald-400"></i>
+                <font-awesome icon="check" class="text-orange-500" />
                 <span>Support technique 24/7</span>
               </li>
               <li class="flex items-center space-x-2">
-                <i class="fas fa-check text-emerald-400"></i>
+                <font-awesome icon="check" class="text-orange-500" />
                 <span>Mises à jour régulières</span>
               </li>
               <li class="flex items-center space-x-2">
-                <i class="fas fa-check text-emerald-400"></i>
+                <font-awesome icon="check" class="text-orange-500" />
                 <span>Formation complète incluse</span>
               </li>
             </ul>
           </div>
 
-          <div class="p-8 bg-gray-800 rounded-lg">
-            <h2 class="mb-4 text-2xl font-bold text-emerald-400">
+          <div class="p-8 bg-slate-700 rounded-lg">
+            <h2 class="mb-4 text-2xl font-bold text-orange-500">
               Notre Expertise
             </h2>
-            <ul class="space-y-3 text-gray-300">
+            <ul class="space-y-3 text-gray-50">
               <li class="flex items-center space-x-2">
-                <i class="fas fa-star text-emerald-400"></i>
+                <font-awesome icon="star" class="text-orange-500" />
                 <span>+5 ans d'expérience</span>
               </li>
               <li class="flex items-center space-x-2">
-                <i class="fas fa-star text-emerald-400"></i>
+                <font-awesome icon="star" class="text-orange-500" />
                 <span>+500 établissements équipés</span>
               </li>
               <li class="flex items-center space-x-2">
-                <i class="fas fa-star text-emerald-400"></i>
+                <font-awesome icon="star" class="text-orange-500" />
                 <span>97% de satisfaction client</span>
               </li>
               <li class="flex items-center space-x-2">
-                <i class="fas fa-star text-emerald-400"></i>
+                <font-awesome icon="star" class="text-orange-500" />
                 <span>Support local en France</span>
               </li>
             </ul>
