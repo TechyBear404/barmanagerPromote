@@ -1,0 +1,193 @@
+/* Animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes parallax {
+  0% {
+    transform: translateY(0) scale(1.1);
+  }
+  100% {
+    transform: translateY(-20px) scale(1.1);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Classes d'animation */
+.parallax-bg {
+  animation: parallax 15s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delay {
+  animation: float 6s ease-in-out 3s infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out forwards;
+}
+
+.animate-fade-in-delay-1 {
+  animation: fade-in 0.6s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-delay-2 {
+  animation: fade-in 0.6s ease-out 0.4s forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-delay-3 {
+  animation: fade-in 0.6s ease-out 0.6s forwards;
+  opacity: 0;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.8s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Transitions */
+.transition-all {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transition-transform {
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.transition-opacity {
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity;
+}
+
+/* Transitions pour les listes */
+.feature-list-move,
+.feature-list-enter-active,
+.feature-list-leave-active {
+  transition: all 0.5s ease;
+}
+
+.feature-list-enter-from,
+.feature-list-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.feature-list-leave-active {
+  position: absolute;
+}
+
+/* Accordion */
+.max-h-0 {
+  max-height: 0;
+}
+
+.max-h-\[500px\] {
+  max-height: 500px;
+}
+
+/* Optimisation des animations */
+.animate-fade-in,
+.animate-fade-in-delay-1,
+.animate-fade-in-delay-2,
+.animate-fade-in-delay-3 {
+  will-change: opacity, transform;
+}
+
+.animate-slide-up {
+  will-change: transform, opacity;
+}
+
+/* Optimisations pour mobile */
+@media (max-width: 768px) {
+  .animate-fade-in-up {
+    animation-duration: 0.6s;
+  }
+
+  .animate-slide-up {
+    animation-duration: 0.6s;
+  }
+
+  .feature-list-move,
+  .feature-list-enter-active,
+  .feature-list-leave-active {
+    transition-duration: 0.3s;
+  }
+
+  /* Réduire la complexité des animations sur mobile */
+  .parallax-bg {
+    animation: none;
+    transform: scale(1.1);
+  }
+
+  /* Optimiser les animations de groupe */
+  .group:hover {
+    transform: translateY(-4px);
+    transition: transform 0.3s ease;
+  }
+}
+
+/* Amélioration des performances d'animation */
+.animate-fade-in,
+.animate-fade-in-delay-1,
+.animate-fade-in-delay-2,
+.animate-fade-in-delay-3,
+.animate-slide-up,
+.animate-fade-in-up {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: transform, opacity;
+}
