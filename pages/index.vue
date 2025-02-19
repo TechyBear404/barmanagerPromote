@@ -47,16 +47,15 @@
           :key="feature.title"
           class="p-8 text-center transition-transform duration-300 rounded-lg bg-slate-700 hover:-translate-y-1"
         >
-          <font-awesome
+          <font-awesome-icon
             :icon="feature.icon"
-            class="mb-4 text-3xl"
-            :class="feature.iconColor"
+            class="mb-4 text-3xl text-orange-500"
             aria-hidden="true"
           />
-          <h3 class="mb-4 text-xl font-bold" :class="feature.titleColor">
+          <h3 class="mb-4 text-xl font-bold text-orange-500">
             {{ feature.title }}
           </h3>
-          <p :class="feature.textColor">
+          <p class="text-gray-50">
             {{ feature.description }}
           </p>
         </article>
@@ -73,82 +72,55 @@ definePageMeta({
 const features = [
   {
     icon: "cash-register",
-    iconColor: "text-orange-500",
     title: "Gestion des Commandes",
-    titleColor: "text-orange-500",
-    textColor: "text-gray-50",
     description:
       "Interface tactile intuitive pour une prise de commande rapide et sans erreur",
   },
   {
     icon: "chart-line",
-    iconColor: "text-orange-500",
     title: "Analyse en temps réel",
-    titleColor: "text-orange-500",
-    textColor: "text-gray-50",
     description:
       "Tableaux de bord personnalisables pour suivre vos performances en direct",
   },
   {
     icon: "box",
-    iconColor: "text-emerald-400",
     title: "Gestion des stocks",
-    titleColor: "text-emerald-400",
-    textColor: "text-gray-400",
     description:
       "Contrôle d'inventaire automatisé avec alertes de réapprovisionnement",
   },
   {
     icon: "users",
-    iconColor: "text-emerald-400",
     title: "Gestion du Personnel",
-    titleColor: "text-emerald-400",
-    textColor: "text-gray-400",
     description:
       "Planification des équipes, suivi des heures et gestion des accès personnalisés",
   },
   {
     icon: "receipt",
-    iconColor: "text-emerald-400",
     title: "Facturation Simplifiée",
-    titleColor: "text-emerald-400",
-    textColor: "text-gray-400",
     description:
       "Gestion des paiements multi-supports et édition automatique des factures",
   },
   {
     icon: "mobile-alt",
-    iconColor: "text-emerald-400",
     title: "Application Mobile",
-    titleColor: "text-emerald-400",
-    textColor: "text-gray-400",
     description:
       "Accès à distance à vos données et gestion depuis votre smartphone",
   },
   {
     icon: "glass-cheers",
-    iconColor: "text-emerald-400",
     title: "Menu Digital",
-    titleColor: "text-emerald-400",
-    textColor: "text-gray-400",
     description:
       "Création et mise à jour facile de vos cartes avec prix et disponibilités",
   },
   {
     icon: "table",
-    iconColor: "text-emerald-400",
     title: "Plan de Salle",
-    titleColor: "text-emerald-400",
-    textColor: "text-gray-400",
     description:
       "Gestion visuelle des tables et suivi en temps réel de l'occupation",
   },
   {
     icon: "credit-card",
-    iconColor: "text-emerald-400",
     title: "Fidélisation Clients",
-    titleColor: "text-emerald-400",
-    textColor: "text-gray-400",
     description:
       "Programme de fidélité intégré avec cartes et points de récompense",
   },
