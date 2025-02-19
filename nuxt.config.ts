@@ -2,7 +2,15 @@
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
-  modules: ["@nuxtjs/tailwindcss", "@vesp/nuxt-fontawesome", "@nuxt/image"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "@vesp/nuxt-fontawesome",
+    "@nuxt/image",
+    "@nuxtjs/sitemap",
+  ],
+  sitemap: {
+    siteUrl: "https://horecaflow-promote.techybear.eu",
+  },
   fontawesome: {
     icons: {
       solid: [

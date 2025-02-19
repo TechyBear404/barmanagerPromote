@@ -8,7 +8,7 @@ export function useParallax() {
     parallaxElements.forEach((el) => {
       const htmlEl = el as HTMLElement;
       const limit = htmlEl.offsetHeight * 0.3;
-      const yPos = -(scrolled * 0.5);
+      const yPos = -(scrolled * 0.2);
       const transform = `translate3d(0, ${Math.min(
         Math.max(yPos, -limit),
         limit
