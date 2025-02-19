@@ -4,7 +4,7 @@
     <div class="absolute inset-0 z-0 overflow-hidden">
       <!-- Image de fond -->
       <div class="absolute inset-0">
-        <NuxtImg
+        <img
           src="/images/pos-background.webp"
           alt="Contact"
           class="object-cover w-full h-full opacity-40 parallax-bg"

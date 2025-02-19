@@ -3,8 +3,8 @@
     <!-- Background Image avec overlay et dégradés -->
     <div class="absolute inset-0 z-0 overflow-hidden">
       <!-- Image de fond -->
-      <div class="absolute -inset-10">
-        <NuxtImg
+      <div class="absolute inset-0">
+        <img
           src="/images/about-background.webp"
           alt="POS System"
           class="object-cover w-full h-full origin-top opacity-40 parallax-bg"

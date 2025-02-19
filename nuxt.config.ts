@@ -8,8 +8,9 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "@nuxtjs/sitemap",
   ],
-  sitemap: {
-    siteUrl: "https://horecaflow-promote.techybear.eu",
+  site: {
+    url: "https://horecaflow-promote.techybear.eu",
+    name: "HorecaFlow",
   },
   fontawesome: {
     icons: {
